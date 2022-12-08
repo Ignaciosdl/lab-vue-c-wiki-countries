@@ -34,10 +34,19 @@
     </div>
 </template>
 <script>
+
+import COUNTRIES from "../../public/countries.json"
+
 export default {
+    data() {
+        return {
+            countries: COUNTRIES
+        }
+    },
     computed: {
         country() {
-
+            return this.countries.find((country)=>
+            country.alpha3Code === this.$route.params)
         }
     },
     mounted() {
